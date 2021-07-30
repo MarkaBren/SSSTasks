@@ -7,12 +7,14 @@ public class HomeTasks4 {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //task1();
-        //task2();
-        //task3();
-        //task4();
+        task1();
+        task2();
+        task3();
+        task4();
+        task5();
         task6();
-
+        task7();
+        task8();
     }
 
     public static void task1(){
@@ -36,11 +38,12 @@ public class HomeTasks4 {
 
         int sum = 0;
         for (int i = 0; i < pentagon.length; i++) sum += pentagon[i];
+        System.out.print("Perimeter is " + sum);
         System.out.print("\n");
     }
 
     public static void task3(){
-        System.out.print("Task 3. Enter a number: ");
+        System.out.println("Task 3. Company's profit");
         int size = scanner.nextInt();
         float[] profit = new float[size];
         for (int i = 0; i < size; i++) profit[i] = scanner.nextFloat();
@@ -57,7 +60,7 @@ public class HomeTasks4 {
     }
 
     public static void task4(){
-        System.out.print("Task 4. Enter a number: ");
+        System.out.println("Task 4. Array ");
         int size = scanner.nextInt();
         float[] arr = new float[size];
         for (int i = 0; i < size; i++) arr[i] = scanner.nextFloat();
@@ -106,6 +109,11 @@ public class HomeTasks4 {
             }
         }
 
+        System.out.println("Sum of negative numbers " + sumNeg);
+        System.out.println("Product between max and min " + productBetween);
+        System.out.println("Product of elements with even numbers " + evenProduct);
+        System.out.println("The sum of elements between the first and last negative elements " + sum);
+
         System.out.print("\n");
     }
 
@@ -130,7 +138,7 @@ public class HomeTasks4 {
     }
 
     public static void task6(){
-        System.out.print("Task 2. Enter a number: ");
+        System.out.print("Task 6. Shuffle an array");
         int[] arr = new int[10];
         for (int i = 0; i < arr.length; i++) arr[i] = scanner.nextInt();
 
@@ -142,6 +150,53 @@ public class HomeTasks4 {
         }
 
         for (int i = 0; i < 10; i++) System.out.print( arr[i] + "\n");
+        System.out.print("\n");
+    }
+
+    public static void task7(){
+        System.out.println("Task 7. ");
+        int[] arr = {5, 0, 5, 0, 0, 2, 0, 0, 5, 5};
+        // for (int i = 0; i < arr.length; i++) arr[i] = scanner.nextInt();
+
+        for (int i = 0; i < arr.length-1; i++) {
+            for (int j = 0; j < arr.length-1; j++) {
+                if(arr[j] == 0){
+                    arr[j] = arr[j+1];
+                    arr[j+1] = 0;
+                }
+            }
+        }
+
+        for (int i = 0; i < arr.length; i++) if(arr[i] == 0) arr[i] = 1;
+
+        for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+
+        System.out.print("\n");
+    }
+
+    public static void task8(){
+        System.out.print("Task 8. New array");
+        int[] arr1 = {1,1,0,0,-1};
+        int[] arr2 = {1,0,-1,5,4};
+        int[] res = new int[10];
+
+        for (int i = 0; i < 5; i++) res[i] = arr1[i];
+        for (int i = 0; i < 5; i++) res[5+i] = arr2[i];
+
+        // Reverse bubble sort
+        for (int i = 0; i < res.length-1; i++) {
+            for (int j = 0; j < res.length-i-1; j++) {
+                if(res[j+1] > res[j]){
+                    int t = res[j];
+                    res[j] = res[j+1];
+                    res[j+1] = t;
+                }
+            }
+        }
+
+        for (int i = 0; i < res.length; i++) System.out.print(res[i] + " ");
+
+        System.out.print("\n");
     }
 
 
